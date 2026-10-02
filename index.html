@@ -23,9 +23,9 @@
 </style>
 </head>
 <body>
-<div id="brand"><img src="logo_raw.png" alt="" width="28" height="28"><b>تايجر لخدمات البلايستيشن 01003011757</b></div>
+<div id="brand"><img src="logo_raw.png" alt="" width="450" height="300"><b>تايجر لخدمات البلايستيشن 01003011757</b></div>
 <div id="wrap">
-  <div id="state">detecting firmware...</div>
+  <div id="state">تحديد الأصدار الخاص بيك...</div>
   <div id="det"></div>
   <div id="cache"></div>
 </div>
@@ -79,7 +79,7 @@
     // it, so a user-agent quirk on the real 13.52 console can never lock it out.
     if (!supported) {
         setState("UNSUPPORTED FIRMWARE", "bad");
-        waitForTap("UNSUPPORTED (" + (key || "unknown") + ") -- press X or tap to run anyway", go);
+        waitForTap("UNSUPPORTED (" + (key || "unknown") + ") -- دوس X عشان تشغل التعديل", go);
         return;
     }
 
@@ -95,7 +95,7 @@
     } else if (ac.status === ac.UPDATEREADY) {
         try { ac.swapCache(); } catch (e) {}
         setCache("update downloaded", true);
-        waitForTap("UPDATE READY -- press X or tap to reload & run",
+        waitForTap("دوس X عشان تشغل التعديل",
                    function () { location.reload(); });
     } else {
         setCache("checking cache...");
@@ -116,16 +116,16 @@
                        function () { location.reload(); });
         }, false);
         ac.addEventListener("noupdate", function () {
-            setCache("cached -- offline ready", true);
+            setCache("تم تحميل الصفحه اوف لاين بنجاح", true);
             go();
         }, false);
         ac.addEventListener("error", function () {
-            setCache("cache unavailable");
-            waitForTap("CACHE FAILED -- press X or tap to run anyway", go);
+            setCache("اقفل وافتح تاني");
+            waitForTap("دوس X عشان تجرب تاني", go);
         }, false);
         ac.addEventListener("obsolete", function () {
             setCache("cache obsolete");
-            waitForTap("CACHE OBSOLETE -- press X or tap to run", go);
+            waitForTap("اقفل الصفحه وافتحها تاني", go);
         }, false);
     }
 })();
