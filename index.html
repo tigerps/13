@@ -95,7 +95,7 @@
     } else if (ac.status === ac.UPDATEREADY) {
         try { ac.swapCache(); } catch (e) {}
         setCache("update downloaded", true);
-        waitForTap("دوس X عشان تشغل التعديل",
+        waitForTap("دوس - اكس - عشان تشغل التعديل",
                    function () { location.reload(); });
     } else {
         setCache("checking cache...");
@@ -107,7 +107,7 @@
         }, false);
         ac.addEventListener("cached", function () {
             setCache("cached for offline use", true);
-            waitForTap("CACHED (first run) -- press X or tap to run", go);
+            waitForTap("CACHED (first run) -- دوس - اكس - عشان تحمل الكاش", go);
         }, false);
         ac.addEventListener("updateready", function () {
             try { ac.swapCache(); } catch (e) {}
